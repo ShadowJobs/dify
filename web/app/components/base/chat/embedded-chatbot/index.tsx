@@ -84,7 +84,7 @@ const Chatbot = () => {
             <Loading type='app' />
           )}
           {chatReady && !appChatListDataLoading && (
-            <div className='relative h-full pt-8 mx-auto w-full max-w-[720px]'>
+            <div className='relative h-full pt-8 mx-auto w-full max-w-[1200px]'>
               {!isMobile && (
                 <div className='absolute top-2.5 right-3 z-20'>
                   <Tooltip

@@ -13,7 +13,7 @@ import type {
 import type { ChatConfig } from '@/app/components/base/chat/types'
 import type { SystemFeatures } from '@/types/feature'
 
-function getAction(action: 'get' | 'post' | 'del' | 'patch', isInstalledApp: boolean) {
+export function getAction(action: 'get' | 'post' | 'del' | 'patch', isInstalledApp: boolean) {
   switch (action) {
     case 'get':
       return isInstalledApp ? consoleGet : get

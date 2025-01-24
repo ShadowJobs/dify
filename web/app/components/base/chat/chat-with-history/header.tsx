@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import { memo } from 'react'
+import Share from '../lin-chat-share/share'
 
 type HeaderProps = {
   title: string
@@ -18,6 +19,8 @@ const Header: FC<HeaderProps> = ({
       `}
     >
       {title}
+      <Share/>
+
     </div>
   )
 }
