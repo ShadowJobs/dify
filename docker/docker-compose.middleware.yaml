@@ -1,7 +1,8 @@
 services:
   # The postgres database.
   db:
-    image: postgres:15-alpine
+    # image: postgres:15-alpine
+    image: postgres:15
     restart: always
     env_file:
       - ./middleware.env
