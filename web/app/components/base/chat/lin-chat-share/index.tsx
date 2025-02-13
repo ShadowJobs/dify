@@ -23,7 +23,7 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({
     appInfoError,
     appData,
     appInfoLoading,
-    appPrevChatList,
+    appPrevChatTree,
     showConfigPanelBeforeChat,
     appChatListDataLoading,
     chatShouldReloadKey,
@@ -32,7 +32,7 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({
   } = useChatWithHistoryContext()
 
   // const chatReady = (!showConfigPanelBeforeChat || !!appPrevChatList.length)
-  const chatReady = appPrevChatList.length
+  const chatReady = appPrevChatTree.length
   const customConfig = appData?.custom_config
   const site = appData?.site
 
@@ -52,7 +52,7 @@ const ChatWithHistory: FC<ChatWithHistoryProps> = ({
     return <AppUnavailable />
   return (
     <div className={`h-full flex bg-white ${className} ${isMobile && 'flex-col'}`}>
-      <div className={`grow overflow-hidden ${showConfigPanelBeforeChat && !appPrevChatList.length && 'flex items-center justify-center'}`}>
+      <div className={`grow overflow-hidden ${showConfigPanelBeforeChat && !appPrevChatTree.length && 'flex items-center justify-center'}`}>
         {
           appChatListDataLoading && chatReady && (
             <Loading type='app' />
@@ -76,12 +76,12 @@ const ChatWithHistoryWrap: FC<ChatWithHistoryWrapProps> = ({
   className,
 }) => {
   const {
-    appPrevChatList,
+    appPrevChatTree,
   } = useConversationWithoutAuth()
   const media = useBreakpoints()
   const isMobile = media === MediaType.mobile
   return (
-    <ChatWithHistoryContext.Provider value={{ appPrevChatList, isMobile } as any}>
+    <ChatWithHistoryContext.Provider value={{ appPrevChatTree, isMobile } as any}>
       <ChatWithHistory className={className} />
     </ChatWithHistoryContext.Provider>
   )

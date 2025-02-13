@@ -43,7 +43,7 @@ import { useAppFavicon } from '@/hooks/use-app-favicon'
 import { InputVarType } from '@/app/components/workflow/types'
 import { TransferMethod } from '@/types/app'
 
-function getFormattedChatList(messages: any[]) {
+export function getFormattedChatList(messages: any[]) {
   const newChatList: ChatItem[] = []
   messages.forEach((item) => {
     const questionFiles = item.message_files?.filter((file: any) => file.belongs_to === 'user') || []

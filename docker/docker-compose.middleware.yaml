@@ -45,6 +45,7 @@ services:
   # The DifySandbox
   sandbox:
     image: langgenius/dify-sandbox:0.2.10
+    # platform: linux/amd64  # ubuntu服务器添加这行，指定使用 AMD64 架构
     restart: always
     environment:
       # The DifySandbox configurations
@@ -70,6 +71,7 @@ services:
   # https://docs.dify.ai/learn-more/faq/install-faq#id-18.-why-is-ssrf_proxy-needed
   ssrf_proxy:
     image: ubuntu/squid:latest
+    # platform: linux/amd64  # ubuntu服务器添加这行，指定使用 AMD64 架构
     restart: always
     volumes:
       - ./ssrf_proxy/squid.conf.template:/etc/squid/squid.conf.template
@@ -92,6 +94,7 @@ services:
   # The Weaviate vector store.
   weaviate:
     image: semitechnologies/weaviate:1.19.0
+    # platform: linux/amd64  # ubuntu服务器添加这行，指定使用 AMD64 架构
     profiles:
       - ""
       - weaviate

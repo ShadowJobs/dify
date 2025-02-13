@@ -1,7 +1,8 @@
 import useSWR from 'swr'
 import { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'next/navigation'
-import { getPrevChatList } from '../utils'
+import { buildChatItemTree } from '../utils'
+import { getFormattedChatList } from '../chat-with-history/hooks'
 import {
   fetchSharedChatListLin,
 } from '@/service/linservice'
@@ -20,12 +21,12 @@ export const useConversationWithoutAuth = () => {
     () => fetchSharedChatListLin(currentConversationId as string, app_id),
   )
 
-  const appPrevChatList = useMemo(
+  const appPrevChatTree = useMemo(
     () => (currentConversationId && linSharedData?.data.length)
-      ? getPrevChatList(linSharedData.data)
+      ? buildChatItemTree(getFormattedChatList(linSharedData.data))
       : [],
     [linSharedData, currentConversationId],
   )
 
-  return { appPrevChatList }
+  return { appPrevChatTree }
 }

@@ -14,7 +14,7 @@ const ChatWidth = 1200
 const ChatWrapper = () => {
   const {
     appParams,
-    appPrevChatList,
+    appPrevChatTree,
     currentConversationId,
     currentConversationItem,
     inputsForms,
@@ -47,7 +47,7 @@ const ChatWrapper = () => {
       inputs: (currentConversationId ? currentConversationItem?.inputs : newConversationInputs) as any,
       inputsForm: inputsForms,
     },
-    appPrevChatList,
+    appPrevChatTree,
     taskId => stopChatMessageResponding('', taskId, isInstalledApp, appId),
   )
   const answerIcon = (appData?.site && appData.site.use_icon_as_answer_icon)
