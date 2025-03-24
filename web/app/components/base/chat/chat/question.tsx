@@ -28,7 +28,7 @@ const Question: FC<QuestionProps> = ({
   } = item
 
   return (
-    <div className='mb-2 flex justify-end pl-14 last:mb-0'>
+    <div className='mb-2 flex justify-end pl-2 md:pl-14 last:mb-0'>
       <div className='group relative mr-4 max-w-full'>
         <div
           className='rounded-2xl bg-[#D1E9FF]/50 px-4 py-3 text-sm text-gray-900'

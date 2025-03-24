@@ -65,7 +65,8 @@ export const config = {
      */
     {
       // source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
-      source: '/((?!_next/static|_next/image|favicon.ico).*)',
+      source: '/((?!api|_next|favicon.ico).*)',
+
       // source: '/(.*)',
       // missing: [
       //   { type: 'header', key: 'next-router-prefetch' },

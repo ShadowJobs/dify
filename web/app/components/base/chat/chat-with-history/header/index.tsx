@@ -17,6 +17,7 @@ import Confirm from '@/app/components/base/confirm'
 import RenameModal from '@/app/components/base/chat/chat-with-history/sidebar/rename-modal'
 import type { ConversationItem } from '@/models/share'
 import cn from '@/utils/classnames'
+import Share from '../../lin-chat-share/share'
 
 const Header = () => {
   const {
@@ -125,6 +126,7 @@ const Header = () => {
           )}
         </div>
         <div className='flex items-center gap-1'>
+          <Share />
           {currentConversationId && (
             <Tooltip
               popupContent={t('share.chat.resetChat')}
