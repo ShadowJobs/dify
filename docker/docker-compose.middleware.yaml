@@ -44,8 +44,7 @@ services:
 
   # The DifySandbox
   sandbox:
-    image: langgenius/dify-sandbox:0.2.10
-    # platform: linux/amd64  # ubuntu服务器添加这行，指定使用 AMD64 架构
+    image: langgenius/dify-sandbox:0.2.11
     restart: always
     environment:
       # The DifySandbox configurations
