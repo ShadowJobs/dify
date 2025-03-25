@@ -68,6 +68,7 @@ const Answer: FC<AnswerProps> = ({
   const [contentWidth, setContentWidth] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
+  const [showSource, setShowSource] = useState(false)
 
   const getContainerWidth = () => {
     if (containerRef.current)
@@ -127,6 +128,7 @@ const Answer: FC<AnswerProps> = ({
                   index={index}
                   showPromptLog={showPromptLog}
                   noChatInput={noChatInput}
+                  setShowSource={setShowSource}
                 />
               )
             }
@@ -160,7 +162,11 @@ const Answer: FC<AnswerProps> = ({
             }
             {
               content && !hasAgentThoughts && (
-                <BasicContent item={item} />
+                showSource ?
+                  <div className="whitespace-pre-wrap">
+                    {content}
+                  </div>
+                  : <BasicContent item={item} />
               )
             }
             {

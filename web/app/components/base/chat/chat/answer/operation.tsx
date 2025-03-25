@@ -21,6 +21,7 @@ import Log from '@/app/components/base/chat/chat/log'
 import ActionButton, { ActionButtonState } from '@/app/components/base/action-button'
 import NewAudioButton from '@/app/components/base/new-audio-button'
 import cn from '@/utils/classnames'
+import { ShowSourceBtn } from '../../lin-chat-share/lin-btns'
 
 type OperationProps = {
   item: ChatItem
@@ -31,6 +32,7 @@ type OperationProps = {
   contentWidth: number
   hasWorkflowProcess: boolean
   noChatInput?: boolean
+  setShowSource: React.Dispatch<React.SetStateAction<boolean>>
 }
 const Operation: FC<OperationProps> = ({
   item,
@@ -41,6 +43,7 @@ const Operation: FC<OperationProps> = ({
   contentWidth,
   hasWorkflowProcess,
   noChatInput,
+  setShowSource,
 }) => {
   const { t } = useTranslation()
   const {
@@ -128,6 +131,7 @@ const Operation: FC<OperationProps> = ({
             }}>
               <RiClipboardLine className='h-4 w-4' />
             </ActionButton>
+            <ShowSourceBtn setShowSource={setShowSource} />
             {!noChatInput && (
               <ActionButton onClick={() => onRegenerate?.(item)}>
                 <RiResetLeftLine className='h-4 w-4' />

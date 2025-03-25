@@ -4,6 +4,7 @@ import type {
 } from 'react'
 import {
   memo,
+  useState,
 } from 'react'
 import type { ChatItem } from '../types'
 import type { Theme } from '../embedded-chatbot/theme/theme-context'
@@ -11,6 +12,7 @@ import { CssTransform } from '../embedded-chatbot/theme/utils'
 import { User } from '@/app/components/base/icons/src/public/avatar'
 import { Markdown } from '@/app/components/base/markdown'
 import { FileList } from '@/app/components/base/file-uploader'
+import { QuestionBtns } from '../lin-chat-share/lin-btns'
 
 type QuestionProps = {
   item: ChatItem
@@ -26,10 +28,12 @@ const Question: FC<QuestionProps> = ({
     content,
     message_files,
   } = item
+  const [showSource, setShowSource] = useState(false)
 
   return (
     <div className='mb-2 flex justify-end pl-2 md:pl-14 last:mb-0'>
       <div className='group relative mr-4 max-w-full'>
+        <QuestionBtns content={content} setShowSource={setShowSource} />
         <div
           className='rounded-2xl bg-[#D1E9FF]/50 px-4 py-3 text-sm text-gray-900'
           style={theme?.chatBubbleColorStyle ? CssTransform(theme.chatBubbleColorStyle) : {}}
@@ -43,7 +47,11 @@ const Question: FC<QuestionProps> = ({
               />
             )
           }
-          <Markdown content={content} />
+          {
+            showSource ?
+              <div className="whitespace-pre-wrap">{content}</div>
+              : <Markdown content={content} />
+          }
         </div>
         <div className='mt-1 h-[18px]' />
       </div>
